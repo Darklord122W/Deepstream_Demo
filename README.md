@@ -26,4 +26,11 @@ After I familiar with all of the process above, I need to integrate deepstream p
 ## Current Progress
 
 ## Hardware components
-###
+### cameras info
+#### Logitech C310
+It can do YUYV and MJPG two differnent ways:
+MJPG @ 1280×720 @ 30 FPS
+YUYV @ 640×480 @ 30 FPS
+MJPG format runs faster
+
+Existing ROS2 node: v4l2_camera usb_cam
