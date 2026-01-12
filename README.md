@@ -34,3 +34,30 @@ YUYV @ 640×480 @ 30 FPS
 MJPG format runs faster
 
 Existing ROS2 node: v4l2_camera usb_cam
+
+## Camera images format
+### how to check camera image output format
+Check what format camera can output:
+```
+v4l2-ctl --list-formats-ext -d /dev/video0
+```
+Check ROS2 topic
+```
+ros2 topic echo /image_raw --once
+```
+### yolov11 expected
+
+
+## Command I use
+check dir structure
+```
+tree -L 2
+```
+
+## Useful project link
+[Yolo model integration](https://github.com/marcoslucianops/DeepStream-Yolo)
+
+[Official Doc for 7.1](https://docs.nvidia.com/metropolis/deepstream/7.1/text/DS_Overview.html)
+
+[Deepstream python example](https://github.com/NVIDIA-AI-IOT/deepstream_python_apps)
+
