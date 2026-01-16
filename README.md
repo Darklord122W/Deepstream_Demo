@@ -59,5 +59,12 @@ tree -L 2
 
 [Official Doc for 7.1](https://docs.nvidia.com/metropolis/deepstream/7.1/text/DS_Overview.html)
 
-[Deepstream python example](https://github.com/NVIDIA-AI-IOT/deepstream_python_apps)
+[Deepstream python example](https://github.com/NVIDIA-AI-IOT/deepstream_python_apps/tree/v1.2.0)
 
+[Deepstream ROS2 example](https://github.com/NVIDIA-AI-IOT/ros2_deepstream/tree/main)
+
+
+## Terminology 
+**GStreamer**:GStreamer is a library for constructing graphs of media-handling components. The applications it supports range from simple Ogg/Vorbis playback, audio/video streaming to complex audio (mixing) and video (non-linear editing) processing.
+
+**nvstreammux**: 
