@@ -35,7 +35,27 @@ MJPG format runs faster
 
 Existing ROS2 node: v4l2_camera usb_cam
 
-## Camera images format
+## Camera configuration
+### usb_cam format parameter
+```
+This driver supports the following formats:
+	rgb8
+	yuyv
+	yuyv2rgb
+	uyvy
+	uyvy2rgb
+	mono8
+	mono16
+	y102mono8
+	raw_mjpeg
+	mjpeg2rgb
+	m4202rgb
+```
+### File location
+```
+cd /home/autodrive/pythonDeep/deepstream_python_apps/apps/deepstream-test1-usbcam
+
+```
 ### how to check camera image output format
 Check what format camera can output:
 ```
@@ -45,7 +65,10 @@ Check ROS2 topic
 ```
 ros2 topic echo /image_raw --once
 ```
-### yolov11 expected
+check topic frequency example
+```
+ros2 topic hz /image_raw
+```
 
 
 ## Command I use
@@ -53,7 +76,10 @@ check dir structure
 ```
 tree -L 2
 ```
-
+for my ROS2 nodes running
+```
+ros2 run usb_cam usb_cam_node_exe
+```
 ## Useful project link
 [Yolo model integration](https://github.com/marcoslucianops/DeepStream-Yolo)
 
