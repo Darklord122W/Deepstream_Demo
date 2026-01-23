@@ -8,10 +8,13 @@ I need to firstly set up a camera node then output custom image messages. I need
 try to make a python pipeline using Deepstream. Pay attention to how to integrate deepstream into python pipeline, especially how to solve the environment dependencies.
 
 ### stage3✅:
-After it works well without ROS2. I need to firstly set up a perception pipeline without deepstream, just in ROS2, which can take in images and then publish bounding box after going through a object detection model like yolov as Andrei asked. then do comparation for the same model just running in python. 
+After it works well without ROS2. I need to firstly set up a perception pipeline without deepstream, just in ROS2, which can take in images and then publish bounding box after going through a object detection model like yolov. then do integrations for Deepstream.
 
 ### stage4: 
 prepare two models. One is detection yolov11n and classify model YOLO26n-cls for a first coarse detection then do detailed classification task.
+
+### stage5: 
+multi-cameras inputs and do inferences then output multiple topics for different camera streams. 
 ### final stage:
 After I familiar with all of the process above, I need to integrate deepstream pipeline in ROS2 first. Then, furthermore think about docker.
 
@@ -22,6 +25,12 @@ After I familiar with all of the process above, I need to integrate deepstream p
 - [ ] 
 
 ## Current Progress
+Trying to add 
+```
+PGIE (detector)
+   ├── SGIE-1 (classifier A)
+   └── SGIE-2 (classifier B)
+```
 
 ## Hardware components
 ### cameras info
@@ -77,6 +86,11 @@ tree -L 2
 for my ROS2 nodes running
 ```
 ros2 run usb_cam usb_cam_node_exe
+```
+
+for see ROS2 node connection graph
+```
+rqt_graph
 ```
 ## Useful project link
 [Yolo model integration](https://github.com/marcoslucianops/DeepStream-Yolo)
