@@ -1,19 +1,17 @@
 # Deepstream Demo
 The final indeal outcome of this project is to use a Nvidia AGX Orin to run a docker container, which will subscribe to a ROS2 image topics and then run through deepstream accerlated inferenced wrapped in ROS2 node then output the bounding box information.
 ## Current plan
-### stage1: 
+### stage1✅: 
 I need to firstly set up a camera node then output custom image messages. I need to be familiar with how camera image output format. Be familiar with how camera image messages in ROS2 Structure flow.
 
-
-### stage2:
-Need to prepare two models (Grab it from hugging face or somewhere). First model will recognize it is a traffic sign, second model will identify the specific traffic sign. learn about Hugging face.
-
-### stage3:
+### stage2✅:
 try to make a python pipeline using Deepstream. Pay attention to how to integrate deepstream into python pipeline, especially how to solve the environment dependencies.
 
-### stage4:
+### stage3✅:
 After it works well without ROS2. I need to firstly set up a perception pipeline without deepstream, just in ROS2, which can take in images and then publish bounding box after going through a object detection model like yolov as Andrei asked. then do comparation for the same model just running in python. 
 
+### stage4: 
+prepare two models. One is detection yolov11n and classify model YOLO26n-cls for a first coarse detection then do detailed classification task.
 ### final stage:
 After I familiar with all of the process above, I need to integrate deepstream pipeline in ROS2 first. Then, furthermore think about docker.
 
@@ -93,4 +91,19 @@ ros2 run usb_cam usb_cam_node_exe
 ## Terminology 
 **GStreamer**:GStreamer is a library for constructing graphs of media-handling components. The applications it supports range from simple Ogg/Vorbis playback, audio/video streaming to complex audio (mixing) and video (non-linear editing) processing.
 
-**nvstreammux**: 
+**nvstreammux**: It takes multiple input video streams (or even just one), synchronizes them, optionally scales/converts them to a common size, and outputs one batched buffer that downstream GPU plugins (especially nvinfer) can process efficiently.
+
+**nvinfer**:nvinfer runs TensorRT-optimized deep-learning inference on batched GPU frames and attaches results as metadata — it does NOT draw, publish, or display anything by itself.
+```
+It does:
+1. Pre-processing
+2. TensorRT inference
+3. Post-processing
+4. Attach metadata
+```
+
+From upstream (almost always nvstreammux):
+GPU buffers (NVMM memory)
+Batched frames
+Consistent resolution / format
+Frame metadata (source_id, timestamps)
