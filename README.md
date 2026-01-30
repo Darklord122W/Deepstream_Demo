@@ -1,36 +1,25 @@
 # Deepstream Demo
-The final indeal outcome of this project is to use a Nvidia AGX Orin to run a docker container, which will subscribe to a ROS2 image topics and then run through deepstream accerlated inferenced wrapped in ROS2 node then output the bounding box information.
-## Current plan
-### stage1✅: 
-I need to firstly set up a camera node then output custom image messages. I need to be familiar with how camera image output format. Be familiar with how camera image messages in ROS2 Structure flow.
+The final ideal outcome of this project is to use a Nvidia AGX Orin to run a docker container, which will subscribe to a ROS2 image topics and then run through deepstream accerlated inferenced perception pipeline wrapped in ROS2 node then output the bounding box information.
 
-### stage2✅:
-try to make a python pipeline using Deepstream. Pay attention to how to integrate deepstream into python pipeline, especially how to solve the environment dependencies.
-
-### stage3✅:
-After it works well without ROS2. I need to firstly set up a perception pipeline without deepstream, just in ROS2, which can take in images and then publish bounding box after going through a object detection model like yolov. then do integrations for Deepstream.
-
-### stage4: 
-prepare two models. One is detection yolov11n and classify model YOLO26n-cls for a first coarse detection then do detailed classification task.
-
-### stage5: 
-multi-cameras inputs and do inferences then output multiple topics for different camera streams. 
-### final stage:
-After I familiar with all of the process above, I need to integrate deepstream pipeline in ROS2 first. Then, furthermore think about docker.
-
-### MISSIONS FOR AT THE SAME TIME
-- [ ] Read [RPN](https://arxiv.org/pdf/1506.01497)
+### PARALLEL MISSIONS FOR AT THE SAME TIME
+- [x] Read [RPN](https://arxiv.org/pdf/1506.01497)
 - [ ] go through the Docker tutorials
 - [ ] Read through all the Documentation files of DeepStream,especially the python examples carefully.
-- [ ] 
 
 ## Current Progress
-Trying to add 
+more details in progress:[Progress stage](Progress.md)
+
+Trying to do 
 ```
 PGIE (detector)
    ├── SGIE-1 (classifier A)
    └── SGIE-2 (classifier B)
 ```
+At the moment, there are mismatch of the output annotated image bounding box, also the second classifier has no actual input. 
+
+**Firstly**, I need to be more familar with the code structure, It can definitely be breaken down into more than one python file and use import to work together in ROS2. 
+
+**Secondly**, I saw sample code in Deepstream ROS2 official GitHub code. one of it uses detection model then applies classification model. Definitely have to take a look.
 
 ## Hardware components
 ### cameras info
@@ -78,7 +67,7 @@ ros2 topic hz /image_raw
 ```
 
 
-## Command I use
+## Command I use frequently
 check dir structure
 ```
 tree -L 2
