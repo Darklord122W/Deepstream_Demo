@@ -110,3 +110,22 @@ GPU buffers (NVMM memory)
 Batched frames
 Consistent resolution / format
 Frame metadata (source_id, timestamps)
+
+#### In PGIE Config file
+pre-cluster-threshold
+Minimum confidence score to keep a box before NMS.
+Higher = fewer detections (more strict). Lower = more detections (more false positives).
+
+topk=20
+Maximum number of boxes per frame (or per class) to keep before NMS.
+Higher = keep more boxes (slower, more clutter). Lower = faster, fewer boxes.
+
+nms-iou-threshold
+IoU threshold used in Non‑Maximum Suppression.
+Lower = more aggressive suppression (fewer overlapping boxes).
+Higher = keep more overlapping boxes (can cause duplicates).
+
+### Command i use for Deepstream Official code
+```
+python3 deepstream_test_2.py /opt/nvidia/deepstream/deepstream-7.1/samples/streams/sample_720p.h264
+```

@@ -15,3 +15,11 @@ prepare two models. One is detection yolov11n and classify model YOLO26n-cls for
 multi-cameras inputs and do inferences then output multiple topics for different camera streams. 
 ### final stage:
 After I familiar with all of the process above, I need to integrate deepstream pipeline in ROS2 first. Then, furthermore think about docker.
+
+
+
+
+## Daily PROGRESS
+
+#### Feb 9th
+plan of today is to figure out why the one in ros2 work and why the official one in Nvidia not working.
